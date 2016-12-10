@@ -5,7 +5,7 @@ channels:
 dependencies:
   - bowtie2
   - samtools
-# for lcdblib
+# Needed for lcdblib
   - pytest >=2.9.2
   - snakemake >=3.8
   - pandas >=0.18.1

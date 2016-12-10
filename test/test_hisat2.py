@@ -62,7 +62,7 @@ def test_hisat2_align_se(hisat2_indexes, sample1_se_fq, tmpdir):
         assert int(list(shell('samtools view -c -f 0x04 sample1.bam', iterable=True))[0]) > 0
         assert int(list(shell('samtools view -c -F 0x04 sample1.bam', iterable=True))[0]) > 0
 
-    run(dpath('../wrappers/hisat2/align'), snakefile, check, input_data_func, tmpdir)
+    run(dpath('../wrappers/hisat2/align'), snakefile, check, input_data_func, tmpdir, use_conda=True)
 
 
 def test_hisat2_align_se_SRA(hisat2_indexes, tmpdir):
