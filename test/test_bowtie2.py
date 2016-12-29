@@ -39,7 +39,7 @@ def _dict_of_bowtie2_indexes(bowtie2_indexes, prefix):
     return d
 
 
-def test_bowtie2_align_se(bowtie2_indexes, sample1_se_fq, tmpdir):
+def test_bt2_align_se(bowtie2_indexes, sample1_se_fq, tmpdir):
     d = _dict_of_bowtie2_indexes(bowtie2_indexes, '2L')
     indexes = list(d.values())
     snakefile = '''
@@ -62,7 +62,7 @@ def test_bowtie2_align_se(bowtie2_indexes, sample1_se_fq, tmpdir):
         assert int(list(shell('samtools view -c -f 0x04 sample1.bam', iterable=True))[0]) > 0
         assert int(list(shell('samtools view -c -F 0x04 sample1.bam', iterable=True))[0]) > 0
 
-    run(dpath('../wrappers/bowtie2/align'), snakefile, check, input_data_func, tmpdir)
+    run(dpath('../wrappers/bowtie2/align'), snakefile, check, input_data_func, tmpdir, use_conda=True)
 
 
 def test_bowtie2_align_se_rm_unmapped(bowtie2_indexes, sample1_se_fq, tmpdir):
