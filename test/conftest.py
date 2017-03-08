@@ -6,15 +6,10 @@ import inspect
 from snakemake.shell import shell
 from snakemake.utils import makedirs
 from lcdblib.snakemake import aligners
-from utils import run, dpath, symlink_in_tempdir
+from utils import run, dpath, symlink_in_tempdir, tmpdir_for_func
 
 # test data url
 URL = 'https://github.com/lcdb/lcdb-test-data/blob/master/data/{}?raw=true'
-
-
-def tmpdir_for_func(factory):
-    caller = inspect.stack()[1][3]
-    return str(factory.mktemp(caller))
 
 
 def _download_file(fn, d):

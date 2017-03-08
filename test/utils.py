@@ -11,13 +11,24 @@ import hashlib
 import urllib
 import shutil
 import shlex
+import inspect
 
 import pytest
 from snakemake import snakemake
 from snakemake.shell import shell
 
-
 SCRIPTPATH = shutil.which('snakemake')
+
+
+
+def tmpdir_for_func(factory):
+    """
+    Returns a tempdir named after the calling function.
+
+    `factory` is a pytest.tmpdir_factory instance.
+    """
+    caller = inspect.stack()[1][3]
+    return str(factory.mktemp(caller))
 
 
 def dpath(path):
