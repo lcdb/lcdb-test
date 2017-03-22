@@ -1,5 +1,4 @@
 import pytest
-import pysam
 from snakemake.shell import shell
 from lcdblib.snakemake import aligners
 from utils import run, dpath, rm, symlink_in_tempdir

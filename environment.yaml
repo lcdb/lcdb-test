@@ -1,0 +1,11 @@
+# only put tools that are needed for tests (e.g., `bowtie-build` is needed to make sure
+# that bowtie-index worked), not for the wrappers themselves, which should have
+# their own environment.yml files.
+dependencies:
+  - bioconda::bowtie2 ==2.3.0
+  - bioconda::gffutils ==0.8.7.1
+  - bioconda::hisat2 ==2.0.5
+  - bioconda::pytest ==3.0.5
+  - bioconda::snakemake ==3.11.2
+  - bioconda::samtools ==1.4
+  - lcdb::lcdblib ==0.1
